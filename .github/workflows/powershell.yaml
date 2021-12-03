@@ -1,0 +1,18 @@
+name: Run PowerShell Script
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+
+jobs:
+  powershell:
+    name: Run PowerShell
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: |
+          ./scripts/test.ps1
+        shell: pwsh
+        

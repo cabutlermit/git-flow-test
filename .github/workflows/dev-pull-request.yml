@@ -18,3 +18,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      
+      - name: Show Docker Tags
+        run: |
+          echo ${{ github.event.pull_request.head.sha }} | cut -c 1-8
+          echo "PR-"${{ github.event.pull_request.number }}

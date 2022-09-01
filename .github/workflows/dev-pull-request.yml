@@ -19,7 +19,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - name: Create and Show Docker Tags with Logic
+      - name: Create tags
+        id: tags
         run: |
           if [ $GITHUB_EVENT_NAME = "workflow_dispatch" ]; then
             TAG_SHA=$(echo $GITHUB_SHA | cut -c 1-8)
@@ -31,5 +32,12 @@ jobs:
           else
             TAG_PR=$(echo "PR-"${{ github.event.pull_request.number }})
           fi
+          echo "::set-output name=tag_sha::$TAG_SHA"
+          echo "::set-output name=tag_pr::$TAG_PR"
+
+      - name: Show tags
+        run: |
+          TAG_SHA="${{ steps.tags.outputs.tag_sha }}"
+          TAG_PR="${{ steps.tags.outputs.tag_pr }}"
           echo $TAG_SHA
           echo $TAG_PR

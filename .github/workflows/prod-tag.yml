@@ -14,3 +14,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
+      - name: Show Docker Tags
+        run: |
+          echo $GITHUB_SHA | cut -c 1-8
+          echo ${{ github.event.release.tag_name }}

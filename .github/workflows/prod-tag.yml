@@ -6,6 +6,7 @@ on:
 
 jobs:
   deploy:
+  if: github.ref == 'refs/heads/main' || github.event.target_commitish == 'main'
     name: Deploy TESTING
     runs-on: ubuntu-latest
     steps:

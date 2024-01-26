@@ -13,7 +13,7 @@ jobs:
       - name: Show values
         run: |
           echo ${{ github.ref }}
-          echo ${{ github.event.release.target_comitish }}
+          echo ${{ github.event.release.target_commitish }}
       - name: Show GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}

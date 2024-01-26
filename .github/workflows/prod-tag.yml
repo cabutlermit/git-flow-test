@@ -6,14 +6,14 @@ on:
 
 jobs:
   deploy:
-    # if: ${{ github.ref == 'refs/heads/main' || github.event.target_commitish == 'main' }}
+    # if: ${{ github.ref == 'refs/heads/main' || github.event.release.target_commitish == 'main' }}
     name: Deploy TESTING
     runs-on: ubuntu-latest
     steps:
       - name: Show values
         run: |
           echo ${{ github.ref }}
-          echo ${{ github.event.target_comitish }}
+          echo ${{ github.event.release.target_comitish }}
       - name: Show GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}

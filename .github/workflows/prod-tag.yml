@@ -8,22 +8,20 @@ jobs:
     name: Deploy TESTING
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
       - name: Show GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - name: Create tags
-        id: tags
-        run: |
-          echo "::set-output name=tag_sha::$GITHUB_SHA"
-          echo "::set-output name=tag_release::${{ github.event.release.tag_name }}"
+      # - name: Create tags
+      #   id: tags
+      #   run: |
+      #     echo "::set-output name=tag_sha::$GITHUB_SHA"
+      #     echo "::set-output name=tag_release::${{ github.event.release.tag_name }}"
 
-      - name: Show Docker Tags
-        run: |
-          TAG_SHA="${{ steps.tags.outputs.tag_sha }}"
-          TAG_RELEASE="${{ steps.tags.outputs.tag_release }}"
-          echo $TAG_SHA | cut -c 1-8
-          echo $TAG_RELEASE
+      # - name: Show Docker Tags
+      #   run: |
+      #     TAG_SHA="${{ steps.tags.outputs.tag_sha }}"
+      #     TAG_RELEASE="${{ steps.tags.outputs.tag_release }}"
+      #     echo $TAG_SHA | cut -c 1-8
+      #     echo $TAG_RELEASE

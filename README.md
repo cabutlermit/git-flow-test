@@ -31,6 +31,7 @@ To run just the checkov checker, run
 ```bash
 pre-commit run checkov
 ```
+
 <!-- BEGIN_TF_DOCS -->
 
 <!-- END_TF_DOCS -->

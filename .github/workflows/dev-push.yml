@@ -11,4 +11,4 @@ jobs:
         - uses: actions/setup-python@v5
         - uses: pre-commit/action@v3.0.1
           with:
-            extra_args: terraform-docs-go
+            extra_args: terraform-docs-go --all-files

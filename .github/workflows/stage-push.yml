@@ -6,7 +6,9 @@ on:
       - main
     paths-ignore:
       - '.github/**'
-      
+
+permissions: read-all
+
 jobs:
   deploy:
     name: Deploy TESTING

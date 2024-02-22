@@ -2,7 +2,7 @@
 
 ## Pre-Commit Hooks
 
-For proper linting and checking, this repo uses pre-commit hooks. The following must be installed in the local workstation
+For proper linting and checking, this repo uses `pre-commit` associated with `pre-push` hooks. The following must be installed in the local workstation. See [Confining Hooks to Run at Certain Stages](https://pre-commit.com/#confining-hooks-to-run-at-certain-stages) for details.
 
 * [pre-commit](https://pre-commit.com/)
 * [checkov](https://github.com/bridgecrewio/checkov)

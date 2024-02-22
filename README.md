@@ -11,7 +11,7 @@ For proper linting and checking, this repo uses `pre-commit` associated with `pr
 After the first checkout locally, run the following command to initial the pre-commit hooks.
 
 ```bash
-pre-commit install
+pre-commit install --hook-type pre-push
 ```
 
 It is possible to run the pre-commit hooks manually. To run all the pre-commit hooks for this repo, run

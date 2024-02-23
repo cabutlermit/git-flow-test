@@ -4,6 +4,8 @@ on:
   release:
     types: [published]
 
+permissions: read-all
+
 jobs:
   deploy:
     if: ${{ github.ref == 'refs/heads/main' || github.event.release.target_commitish == 'main' }}

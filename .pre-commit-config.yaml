@@ -4,6 +4,11 @@ repos:
   #   hooks:
   #   - id: cfn-lint
   #     files: cloudformation/.*\.(json|yml|yaml)$
+  #
+  # We switch to pre-push for all the hooks to make it easy for folks to 
+  # make local WIP commits.
+  # 
+  # We leverage the Anton Babenko Terraform pre-commit module for basic fmt and validate
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: "v1.83.5"
     hooks:

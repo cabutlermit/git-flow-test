@@ -13,8 +13,19 @@ jobs:
   deploy:
     name: Deploy TESTING
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - uses: actions/checkout@v2
+      - name: Get this repo
+        uses: actions/checkout@v4
+        with:
+          path: files
+      
+      - name: Get other repo
+        uses: actions/checkout@v4
+        with: 
+          repository: cabutlermit/web-app
+          token: ${{ secrets.CABUTLER_PAT}}
+          path: tools
 
       - name: Show GitHub context
         env:
@@ -43,3 +54,9 @@ jobs:
           TAG_PR="${{ steps.tags.outputs.tag_pr }}"
           echo $TAG_SHA
           echo $TAG_PR
+
+      - name: Show files
+        run: |
+          ls $GITHUB_WORKSPACE
+          ls $GITHUB_WORKSPACE/files
+          ls $GITHUB_WORKSPACE/tools

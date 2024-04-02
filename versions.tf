@@ -4,5 +4,5 @@
 
 # an edit to verify hooks
 terraform {
-  required_version   = "~> 1.2"
+  required_version = "~> 1.2"
 }

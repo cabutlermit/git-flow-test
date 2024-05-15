@@ -1,0 +1,16 @@
+name: Shared Prod Promote TESTING
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions: read-all
+
+jobs:
+    deploy:
+      name: Shared Prod Container Promote
+      uses: cabutlermit/.github/.github/workflows/shared-prod-promote.yml@main
+      secrets: inherit
+      with:
+        VAR_ONE: "variable one"
+        VAR_TWO: "variable two"

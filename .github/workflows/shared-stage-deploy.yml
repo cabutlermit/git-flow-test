@@ -1,0 +1,19 @@
+name: Shared Prod Promote TESTING
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+
+permissions: read-all
+
+jobs:
+    deploy:
+      name: Shared Stage Container Deploy
+      uses: cabutlermit/.github/.github/workflows/shared-stage-deploy.yml@main
+      secrets: inherit
+      with:
+        VAR_ONE: "variable one"
+        VAR_TWO: "variable two"

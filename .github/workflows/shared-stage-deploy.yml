@@ -1,4 +1,4 @@
-name: Shared Prod Promote TESTING
+name: Shared Stage Deploy TESTING
 on:
   workflow_dispatch:
   push:
